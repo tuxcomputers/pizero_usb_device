@@ -1,4 +1,4 @@
-# What I learnt while do ing this project
+# What I learnt while doing this project
 
 ## HID descriptors
 When HID devices connect they send across what length of data the computer should expect from the device. This is defined in the device creation script by this line:
