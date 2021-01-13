@@ -62,15 +62,15 @@ When the function ```button(p)``` is called the button number desired is passed 
 
 If the button number is less than 8 then power raised to is p-1, then the value is sent as the third byte.
 
-Button 1 = 2^(1-1) = 2^0 = char(1)
-Button 2 = 2^(2-1) = 2^1 = char(2)
-Button 3 = 2^(3-1) = 2^2 = char(4)
+- Button 1 = 2^(1-1) = 2^0 = char(1)
+- Button 2 = 2^(2-1) = 2^1 = char(2)
+- Button 3 = 2^(3-1) = 2^2 = char(4)
 
 If the button number is less than 16 the the power raised to is p-9, then that value is sent as the fourth byte.
 
-Button 9 = 2^(9-9) = 2^0 = char(1)
-Button 10 = 2^(11-9) = 2^1 = char(2)
-Button 11 = 2^(12-9) = 2^2 = char(4)
+- Button 9 = 2^(9-9) = 2^0 = char(1)
+- Button 10 = 2^(11-9) = 2^1 = char(2)
+- Button 11 = 2^(12-9) = 2^2 = char(4)
 
 
 ## Altering the config to suit your own purposes
@@ -95,8 +95,8 @@ Why do this when the Zero only has 28 GPIO pins is baffling to me but it is poss
    - Line 35 of joystick.sh
 1. Increase the number of bytes sent to clear the button presses
    - Line 8 of the joystick.py
-1. Ensure every line sending bytes so it sends 10
-1. Use the current function as a guide to increase the ```elif``` blocks
+1. Ensure every line so that it sends 10 bytes, add 4 of the '+chr(0)' to the end of the current lines
+1. Use the current function as a guide to increase the ```elif``` blocks, in each block of 8 buttons move the +chr(x) one to the right
 
 ### Changing how the buttons operate
 Currently the function to detect the GPIO change is 'when_pressed'
