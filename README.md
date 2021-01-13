@@ -36,7 +36,7 @@ Note2: You can use one of the other OS packages if you wish and skip the install
    sudo cp joystick.sh /usr/bin
    sudo chmod +x /usr/bin/joystick.sh
    ```
-1. The RaspberryPi uses dynamic device creation so the creation script needs to be run every time the Pi boots. To configure the Zero to run the USB joystick device creation on boot add the following line above 'exit 0'
+1. The RaspberryPi uses dynamic device creation so the creation script needs to be run every time the Pi boots. To configure the Zero to run the USB joystick device creation on boot add the following line above 'exit 0' to the file ```/etc/rc.local```
    ```
    /usr/bin/joystick.sh
    ```
