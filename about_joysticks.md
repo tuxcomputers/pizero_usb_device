@@ -52,10 +52,10 @@ When button 9 is required the bytes sent are 000100. It is the same byte but jus
 This means that the only bytes required are, 1, 2, 4, 8, 16, 32, 64 and 128 (in Hex they are 01, 02, 04, 08, 10, 20, 40, 80). To use a different group of 8 buttons the same byte is used but it is in a different position.
 
 To covert the button number to the required value 2 is raised to a power
-Button 1 is 2^0 = 1
-Button 2 is 2^1 = 2
-Button 3 is 2^2 = 4
-etc
+- Button 1 is 2^0 = 1
+- Button 2 is 2^1 = 2
+- Button 3 is 2^2 = 4
+- etc
 
 ## How the Python function uses the button number
 When the function ```button(p)``` is called the button number desired is passed as the parameter ```p```
