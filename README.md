@@ -46,15 +46,18 @@ Note2: You can use one of the other OS packages if you wish and skip the install
    ```
 1. Connect the Zero to your computer, you should now see the virtual joystick in your devices
    - Control Panel -> Devices and Printers
-     ![Joystick device](/images/01-device.png)
+   
+   ![Joystick device](/images/01-device.png)
 
 # Testing the virtual joystick
 1. Right click the joystick and select
    - Game controller settings
-     ![Joystick device](/images/02-device.png)
+   
+   ![Joystick device](/images/02-device.png)
    - Properties button
    - Test tab
-     ![Joystick device](/images/03-test.png)
+   
+   ![Joystick device](/images/03-test.png)
 1. On the Zero run the command:
    ```
    sudo python3 joystick.py
