@@ -51,9 +51,8 @@ Note2: You can use one of the other OS packages if you wish and skip the install
 
 # Testing the virtual joystick
 1. Right click the joystick and select
-   - Game controller settings
-   
    ![Joystick device](/images/02-device.png)
+   - Game controller settings
    - Properties button
    - Test tab
    
