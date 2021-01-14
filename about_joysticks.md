@@ -61,8 +61,7 @@ To convert the button number requires several steps
    ```
    - Buttons 1-8 will have a position number of 0
    - Buttons 9-16 a position number of 1
-   - etc
-   I *know* that the data position of buttons 1-8 is actually 3 but the value is calculated as such for use in other calculations
+   - etc (I *know* that the data position of buttons 1-8 is actually 3 but the value is calculated as such for use in other calculations)
 1. Next the power number is calculated using the position number
    ```
    power = p-(loc*8)-1
@@ -87,6 +86,8 @@ To convert the button number requires several steps
       - the 2 XY position bytes minus
       - the data byte minus
       - the front button padding bytes
+
+PS. I am in the process of trying to figure out the HID descriptors so that there is no XY for the joystick and that data is not required.
 
 ## Altering the config to suit your own purposes
 This config is for a joystick with XY plus 32 buttons, if you want more or less then you can do so by following these directions
