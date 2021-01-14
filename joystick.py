@@ -34,50 +34,8 @@ def button(p):
 def js_button_1():
     button(1)
 
-def js_button_2():
-    button(2)
-
-def js_button_3():
-    button(3)
-
-def js_button_4():
-    button(4)
-
-def js_button_5():
-    button(5)
-
-def js_button_6():
-    button(6)
-
-def js_button_7():
-    button(7)
-
-def js_button_8():
-    button(8)
-
-def js_button_9():
-    button(9)
-
 def js_button_10():
     button(10)
-
-def js_button_11():
-    button(11)
-
-def js_button_12():
-    button(12)
-
-def js_button_13():
-    button(13)
-
-def js_button_14():
-    button(14)
-
-def js_button_15():
-    button(15)
-
-def js_button_16():
-    button(16)
 
 def js_button_18():
     button(18)
