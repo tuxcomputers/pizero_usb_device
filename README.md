@@ -62,5 +62,7 @@ Note2: You can use one of the other OS packages if you wish and skip the install
    1. Pin 7 (fourth left) - Button 18
    1. Pin 40 (last right) - Button 26
 1. To exit the script use Ctrl+C
+1. Copy and paste the top 30+ lines of the test script to your own project
+1. Configure the GPIO pins to trigger whichever joystick button you need
 
 If you want to know all I have learned while creating this project so you can customise or change the configuration then read the 'About HID joysticks' file
