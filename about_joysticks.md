@@ -105,7 +105,6 @@ If you require less buttons then just use less buttons. Why anyone would configu
       - 5 is 24 buttons
       - etc
    1. On the HID descriptor line change the max and expected number of buttons
-1. Edit the Python script, change the ```report_length``` to match the above
 
 
 ### Changing how the buttons operate
