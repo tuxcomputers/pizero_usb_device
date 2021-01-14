@@ -4,8 +4,8 @@ from time import sleep
 from math import pow, floor
 
 NULL_CHAR = chr(0)
-sleep_time = 1
 report_length = 6
+
 def clean_up():
     report = NULL_CHAR*report_length
     with open('/dev/hidg0', 'rb+') as fd:
@@ -13,19 +13,19 @@ def clean_up():
 
 def button(p):
     # The position of the data byte
-    pos = floor(p-1)/8
+    loc = int(floor(p-1)/8)
     
     # The required power is calculated
-    power = p-(pos*8)-1
+    power = p-(loc*8)-1
     
     # The character value is calculated
-    x = pow(2, power)
+    x = int(pow(2, power))
     
     # First two bytes are for joystick XY, always 00
     # The number of padding bytes until the data is next
     # The data is added
-    # The number of padding bytes to the end is added on the end
-    report = NULL_CHAR*2+NULL_CHAR*pos+chr(x)+NULL_CHAR*(report_length-pos-3)
+    # The number of padding bytes to the end is added on the end, the 3 on the end of the formula is 2 x XY position bytes and the data byte
+    report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
     
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
