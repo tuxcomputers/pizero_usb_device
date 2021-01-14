@@ -55,10 +55,14 @@ This means that the only bytes required are, 1, 2, 4, 8, 16, 32, 64 and 128 (in 
 When the function ```button(p)``` is called the button number desired is passed as the parameter ```p```
 
 To convert the button number requires several steps
-1. The position number of the data byte, buttons 1-8 will have a position number of 0, 9-16 a position number of 1, etc (see above diagram)
+1. The position number of the data byte is calculated
    ```
    loc = int(floor(p-1)/8)
    ```
+   - Buttons 1-8 will have a position number of 0
+   - Buttons 9-16 a position number of 1
+   - etc
+   I *know* that the data position of buttons 1-8 is actually 3 but the value is calculated as such for use in other calculations
 1. Next the power number is calculated using the position number
    ```
    power = p-(loc*8)-1
@@ -68,18 +72,21 @@ To convert the button number requires several steps
    x = int(pow(2, power))
    ```
    - For example when the button is 9 the calculation for the power variable is:
-   9-(1*8)-1 this equals 0, when 2 is raised to the power of zero it equals 1, so the data byte in binary is 00000001
+   9-(1*8)-1 this equals 0, when 2 is raised to the power of zero it equals 1, so position of the data is 1 and the data byte in binary is 00000001
    - When the button is 15 the calculation is:
-   15-(1*8)-1 this equals 1, when 2 is raised to the power of 6 it equals 64, in binary that is 01000000
-1. The data bytes are composed consisting of:
-   - Two NULLS for the XY joystick position
-   - The ```loc``` variable is used to add the padding between the Xy and the data
-   - The data byte
-   - The padding added to the end is
-     - the ```report_length``` minus
-     - the 2 XY position bytes minus
-     - the data byte minus
-     - the front button padding bytes
+   15-(1*8)-1 this equals 6, when 2 is raised to the power of 6 it equals 64, in binary that is 01000000
+1. The data bytes are composed:
+   ```
+   report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
+   ```
+   1. Two NULLS for the XY joystick position
+   1. The ```loc``` variable is used to add the padding between the XY and the button data
+   1. The data byte
+   1. The padding added to the end is
+      - the ```report_length``` minus
+      - the 2 XY position bytes minus
+      - the data byte minus
+      - the front button padding bytes
 
 ## Altering the config to suit your own purposes
 This config is for a joystick with XY plus 32 buttons, if you want more or less then you can do so by following these directions
@@ -119,12 +126,15 @@ It is not possible to call the button function directly on the button press:
 gpio_2.when_pressed = button(1)
 ```
 
-That library just doesn't work that way, not my fault, sorry.
+The GPIO library just doesn't work that way, not my fault, sorry.
 
-On detection of the release the data sent to the computer is all zeros by calling the ```clear_up``` function
+On detection of the release the data sent to the computer is all zeros by calling the ```clean_up``` function
+```
+gpio_2.when_released = clean_up
+```
 
 This configuration only allows the pressing of a single button at a time.
 
 It is possible to send data that indicates that multiple buttons are on at once for example the data '001100' would be button 1 and 9 are on.
 
-If I required that the functionality for my project the button function would be WAY more complex. I would probably end up using some sort of data array to store the state of the buttons, convert that to hex and send that as the data. On GPIO state change I would then update the array convert it and send the data again, something like that anyway.
+If I required that the functionality for the project the button function would be WAY more complex. I would probably end up using some sort of data array to store the state of the buttons, convert that to hex and send that as the data. On GPIO state change I would then update the array convert it and send the data again, something like that anyway.
