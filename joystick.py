@@ -1,7 +1,7 @@
 from gpiozero import Button
 from signal import pause
 from time import sleep
-import math import pow
+from math import pow, floor
 
 NULL_CHAR = chr(0)
 sleep_time = 1
@@ -12,25 +12,24 @@ def clean_up():
         fd.write(report.encode())
 
 def button(p):
-    if p <= 8:
-        x = pow(2, p-1)
-        report = chr(0)+chr(0)+chr(x)+chr(0)+chr(0)+chr(0)
-    elif p <= 16:
-        x = pow(2, p-9)
-        report = chr(0)+chr(0)+chr(0)+chr(x)+chr(0)+chr(0)
-    elif p <= 24:
-        x = pow(2, p-17)
-        report = chr(0)+chr(0)+chr(0)+chr(0)+chr(x)+chr(0)
-    elif p <= 32:
-        x = pow(2, p-25)
-        report = chr(0)+chr(0)+chr(0)+chr(0)+chr(0)+chr(x)
-    else:
-        print ('Huh')
+    # The position of the data byte
+    pos = floor(p-1)/8
+    
+    # The required power is calculated
+    power = p-(pos*8)-1
+    
+    # The character value is calculated
+    x = pow(2, power)
+    
+    # First two bytes are for joystick XY, always 00
+    # The number of padding bytes until the data is next
+    # The data is added
+    # The number of padding bytes to the end is added on the end
+    report = NULL_CHAR*2+NULL_CHAR*pos+chr(x)+NULL_CHAR*(report_length-pos-3)
+    
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
-    sleep(sleep_time)
-    clean_up()
-
+    
 def js_button_1():
     button(1)
 
@@ -87,13 +86,19 @@ def js_button_26():
 
 gpio_2 = Button(2)
 gpio_2.when_pressed = js_button_1
+gpio_2.when_released = clean_up
+
 gpio_3 = Button(3)
 gpio_3.when_pressed = js_button_10
+gpio_3.when_released = clean_up
+
 gpio_4 = Button(4)
 gpio_4.when_pressed = js_button_18
+gpio_4.when_released = clean_up
+
 gpio_21 = Button(21)
 gpio_21.when_pressed = js_button_26
-
+gpio_21.when_released = clean_up
 
 
 clean_up()

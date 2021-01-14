@@ -13,15 +13,10 @@ Note2: You can use one of the other OS packages if you wish and skip the install
 
 # Software installation
 1. Image the SD card with the image of the OS. There are many instructions on how to do this but my go to program is [balenaEtcher](https://www.balena.io/etcher/)
-1. Download the GPIO Python package using either method:
-   - Install the apt package
+1. Download the GPIO Python package:
      ```
      sudo apt-get update
-     sudo apt-get -y install rpi.gpio
-     ```
-   - Install using pip
-     ```
-     sudo pip3 install gpiozero
+     sudo apt-get -y install rpi.gpio python3-gpiozero
      ```
 
 # Configure the Zero as a USB device
@@ -67,10 +62,5 @@ Note2: You can use one of the other OS packages if you wish and skip the install
    1. Pin 7 (fourth left) - Button 18
    1. Pin 40 (last right) - Button 26
 1. To exit the script use Ctrl+C
-
-The length of time the button remains pressed is the third line of the Python script, if you need longer just increase that value
-```
-sleep_time = 1
-```
 
 If you want to know all I have learned while creating this project so you can customise or change the configuration then read the 'About HID joysticks' file
