@@ -4,7 +4,8 @@ from time import sleep
 from math import pow, floor
 
 NULL_CHAR = chr(0)
-report_length = 6
+report_length_file = open('/sys/kernel/config/usb_gadget/xac_joystick/functions/hid.usb0/report_length', 'r')
+report_length      = report_length_file.read()
 
 def clean_up():
     report = NULL_CHAR*report_length
