@@ -48,7 +48,7 @@ def compileReport():
             hexList[x] = hex(int(bitsReverseString,2))[1:]
 def modifyBit(button, val='flip'):
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
-    pos = button - 1
+    pos = int(button) - 1
 
     # check if its been changed to something valid
     if (val != 'flip') and (val==1 or val==2):
