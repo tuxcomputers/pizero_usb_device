@@ -132,15 +132,15 @@ gpio_0.when_pressed = activate1
 gpio_0.when_released = deactivate1
 
 gpio_1 = Button(1)
-gpio_1.when_pressed = deactivate2
+gpio_1.when_pressed = activate2
 gpio_1.when_released = deactivate2
 
 gpio_2 = Button(2)
-gpio_2.when_pressed = deactivate3
+gpio_2.when_pressed = activate3
 gpio_2.when_released = deactivate3
 
 gpio_3 = Button(3)
-gpio_3.when_pressed = deactivate4
+gpio_3.when_pressed = activate4
 gpio_3.when_released = deactivate4
 
 print('stopgpios')
