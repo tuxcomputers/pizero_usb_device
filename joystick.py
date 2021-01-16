@@ -27,28 +27,28 @@ def testreports(report):
 def testing():
     print('1')
     testreports('\\x4\\x80\\x0\\x0\\x0\\x0')
-    sleep(2)
-    clean_up
+    sleep(8)
+    clean_up()
     print('2')
     testreports('\\x80\\x4\\x0\\x0\\x0\\x0')
-    sleep(2)
-    clean_up
+    sleep(8)
+    clean_up()
     print('3')
     testreports('\\x80\\x80\\x4\\x0\\x0\\x0')
-    sleep(2)
-    clean_up
+    sleep(8)
+    clean_up()
     print('4')
     testreports('\\x80\\x80\\x0\\x4\\x0\\x0')
-    sleep(2)
-    clean_up
+    sleep(8)
+    clean_up()
     print('5')
     testreports('\\x80\\x80\\x0\\x0\\x4\\x0')
-    sleep(2)
-    clean_up
+    sleep(8)
+    clean_up()
     print('6')
     testreports('\\x80\\x80\\x0\\x0\\x0\\x4')
-    sleep(2)
-    clean_up
+    sleep(8)
+    clean_up()
 
 def sendReport():
     report = str('\\x0\\'+('\\'.join(hexList))+'\\x0')
