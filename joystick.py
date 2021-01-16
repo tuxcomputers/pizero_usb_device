@@ -21,11 +21,12 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = NULL_CHAR*2+(''.join(hexList))
+    report = '0x00x0'+(''.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
-    print(report)
-    print(binaryList)
+    print('report: '+report)
+    print('bits: 'binaryList)
+
 def compileReport():
     # go through the bytes we want to send. 4 because we have 32 buttons
     for x in range(len(hexList)):
@@ -65,9 +66,7 @@ def button(butt, val='flip'):
 
 def activate(butt):
     button(butt, 1)
-    print('activate')
 def deactivate(butt):
-    print('deactivate')
     button(butt, 0)
 
 def screen():
