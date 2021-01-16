@@ -68,11 +68,11 @@ def button(butt, val='flip'):
 
 def activate(butt):
     print('butt: '+str(butt))
-    print(butt.number)
+    print(butt.pin.number)
     #button(butt, 1)
 def deactivate(butt):
     print('butt: '+str(butt))
-    print(butt.number)
+    print(butt.pin.number)
     #button(butt, 0)
 
 # def screen():
