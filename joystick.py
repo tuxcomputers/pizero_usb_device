@@ -21,11 +21,11 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = '0x00x0'+(''.join(hexList))
+    report = hex(0)+hex(0)+(''.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
-    print('report: '+report)
-    print('bits: '+binaryList)
+    print('report: '+str(report))
+    print('bits: '+str(binaryList))
 
 def compileReport():
     # go through the bytes we want to send. 4 because we have 32 buttons
