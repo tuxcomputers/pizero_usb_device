@@ -25,7 +25,7 @@ def sendReport():
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+report)
-    print('bits: 'binaryList)
+    print('bits: '+binaryList)
 
 def compileReport():
     # go through the bytes we want to send. 4 because we have 32 buttons
