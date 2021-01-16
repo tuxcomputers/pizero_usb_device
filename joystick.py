@@ -25,6 +25,7 @@ def sendReport():
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+str(report))
+    clean_up()
     #print('bits: '+str(binaryList))
 
 def compileReport():
