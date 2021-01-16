@@ -110,7 +110,7 @@ def deactivate(butt):
 #     button(26)
 
 # Using GPIO 0 to 15
-while true:
+while True:
     print('startgpios')
     gpio_0 = Button(0)
     gpio_0.when_pressed = activate
