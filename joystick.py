@@ -2,7 +2,7 @@ from gpiozero import Button
 from signal import pause
 from time import sleep
 from math import pow, floor
-# import subprocess
+import subprocess
 
 # list of bits, representing the 32 buttons
 binaryList = [0] * 32
@@ -59,7 +59,7 @@ def modifyBit(button, val='flip'):
         else:
             binaryList[pos] = 1
 def button(butt, val='flip'):
-    print('button action '+butt+' '+val)
+    print('button action '+str(butt)+' '+str(val))
     modifyBit(butt, val)
     compileReport()
     sendReport()
@@ -71,6 +71,8 @@ def deactivate(butt):
     print('deactivate')
     button(butt, 0)
 
+def screen():
+    image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 1280x800 /home/pi/images/eliteD.png'.split())
 # def button(p):
 #     # The position of the data byte
 #     loc = int(floor(p-1)/8)
