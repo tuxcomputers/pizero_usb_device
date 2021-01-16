@@ -25,22 +25,22 @@ def testreports(report):
         fd.write(report.encode())
 
 def testing():
-    testreports('\x4\x0\x0\x0\x0\x0')
+    testreports('\\x4\\x0\\x0\\x0\\x0\\x0')
     sleep(2)
     clean_up
-    testreports('\x0\x4\x0\x0\x0\x0')
+    testreports('\\x0\\x4\\x0\\x0\\x0\\x0')
     sleep(2)
     clean_up
-    testreports('\x0\x0\x4\x0\x0\x0')
+    testreports('\\x0\\x0\\x4\\x0\\x0\\x0')
     sleep(2)
     clean_up
-    testreports('\x0\x0\x0\x4\x0\x0')
+    testreports('\\x0\\x0\\x0\\x4\\x0\\x0')
     sleep(2)
     clean_up
-    testreports('\x0\x0\x0\x0\x4\x0')
+    testreports('\\x0\\x0\\x0\\x0\\x4\\x0')
     sleep(2)
     clean_up
-    testreports('\x0\x0\x0\x0\x0\x4')
+    testreports('\\x0\\x0\\x0\\x0\\x0\\x4')
     sleep(2)
     clean_up
 
