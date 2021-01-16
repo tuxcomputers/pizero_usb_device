@@ -2,7 +2,7 @@ from gpiozero import Button
 from signal import pause
 from time import sleep
 from math import pow, floor
-import subprocess
+# import subprocess
 
 # list of bits, representing the 32 buttons
 binaryList = [0] * 32
