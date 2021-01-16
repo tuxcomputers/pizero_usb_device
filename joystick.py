@@ -100,28 +100,28 @@ def deactivate(butt):
 def activate1():
     activate(1)
     print('act1')
-def activate1():
+def deactivate1():
     deactivate(1)
     print('act1')
 
 def activate2():
     activate(2)
     print('act')
-def activate2():
+def deactivate2():
     deactivate(2)
     print('deact')
 
 def activate3():
     activate(3)
     print('act')
-def activate3():
+def deactivate3():
     deactivate(3)
     print('deact')
 
 def activate4():
     activate(4)
     print('act')
-def activate4():
+def deactivate4():
     print('deact')
     deactivate(4)
 
