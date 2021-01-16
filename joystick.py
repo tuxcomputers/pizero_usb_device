@@ -67,13 +67,9 @@ def button(butt, val='flip'):
     sendReport()
 
 def activate(butt):
-    print('butt: '+str(butt))
-    print(butt.pin.number)
-    #button(butt, 1)
+    button(butt.pin.number, 1)
 def deactivate(butt):
-    print('butt: '+str(butt))
-    print(butt.pin.number)
-    #button(butt, 0)
+    button(butt.pin.number, 0)
 
 # def screen():
     # image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 256x160 images/atreides.png'.split())
