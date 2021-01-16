@@ -21,7 +21,7 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = hex(0)+hex(0)+('\\'.join(hexList))
+    report = '\\'+hex(0)[1:]+'\\'+hex(0)[1:]+('\\'.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+str(report))
@@ -119,7 +119,6 @@ def deactivate4():
     deactivate(4)
 
 # Using GPIO 0 to 15
-print('startgpios')
 gpio_0 = Button(0)
 gpio_0.when_pressed = activate1
 gpio_0.when_released = deactivate1
@@ -139,7 +138,6 @@ gpio_3.when_released = deactivate4
 # gpio_4 = Button(4)
 # gpio_4.when_pressed = screen
 
-print('stopgpios')
 # Gpio 16 to 19 will be for internal changes
 
 clean_up()
