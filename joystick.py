@@ -28,6 +28,7 @@ def sendReport():
         fd.write(report.encode())
 print('sendreport')
 def compileReport():
+    print('compilereport')
     # go through the bytes we want to send. 4 because we have 32 buttons
     for x in range(len(hexList)):
         # initialise some stuff
@@ -46,6 +47,7 @@ def compileReport():
         hexList[x] = hex(int(bitsReverseString,2))
 print('compilereport')
 def modifyBit(button, val='flip'):
+    print('modbit')
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = button - 1
 
@@ -67,9 +69,11 @@ def button(butt, val='flip'):
 
 def activate(butt):
     button(butt, 1)
+    print('activate')
     print(butt)
     print(type(butt))
 def deactivate(butt):
+    print('deactivate')
     button(butt, 0)
     print(butt)
     print(type(butt))
