@@ -11,7 +11,6 @@ hexList = [None] * 4
 NULL_CHAR = chr(0)
 report_length_file = open('/sys/kernel/config/usb_gadget/xac_joystick/functions/hid.usb0/report_length', 'r')
 report_length      = int(report_length_file.read())
-print('initialized values')
 
 # image display maybe
 # image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 1280x800 /home/pi/images/eliteD.png'.split())
@@ -26,7 +25,6 @@ def sendReport():
 
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
-print('sendreport')
 def compileReport():
     print('compilereport')
     # go through the bytes we want to send. 4 because we have 32 buttons
@@ -45,7 +43,6 @@ def compileReport():
             bitsReverseString += str(bitsReverse[y])
 
         hexList[x] = hex(int(bitsReverseString,2))
-print('compilereport')
 def modifyBit(button, val='flip'):
     print('modbit')
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
@@ -61,7 +58,6 @@ def modifyBit(button, val='flip'):
             binaryList[pos] = 0
         else:
             binaryList[pos] = 1
-print('modifybit')
 def button(butt, val='flip'):
     print('button action')
     modifyBit(butt, val)
@@ -71,13 +67,9 @@ def button(butt, val='flip'):
 def activate(butt):
     button(butt, 1)
     print('activate')
-    print(butt)
-    print(type(butt))
 def deactivate(butt):
     print('deactivate')
     button(butt, 0)
-    print(butt)
-    print(type(butt))
 
 # def button(p):
 #     # The position of the data byte
