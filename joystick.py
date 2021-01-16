@@ -68,13 +68,15 @@ def button(butt, val='flip'):
 
 def activate(butt):
     print('butt: '+str(butt))
-    button(butt, 1)
+    print(butt.number)
+    #button(butt, 1)
 def deactivate(butt):
     print('butt: '+str(butt))
-    button(butt, 0)
+    print(butt.number)
+    #button(butt, 0)
 
-def screen():
-    image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 256x160 images/atreides.png'.split())
+# def screen():
+    # image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 256x160 images/atreides.png'.split())
 # def button(p):
 #     # The position of the data byte
 #     loc = int(floor(p-1)/8)
