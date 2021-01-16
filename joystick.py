@@ -21,12 +21,12 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = NULL_CHAR*2+''.join(hexList)
-
+    report = NULL_CHAR*2+(''.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
+    print(report)
+    print(binaryList)
 def compileReport():
-    print('compilereport')
     # go through the bytes we want to send. 4 because we have 32 buttons
     for x in range(len(hexList)):
         # initialise some stuff
@@ -44,7 +44,6 @@ def compileReport():
 
         hexList[x] = hex(int(bitsReverseString,2))
 def modifyBit(button, val='flip'):
-    print('modbit')
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = button - 1
 
@@ -138,8 +137,8 @@ gpio_3 = Button(3)
 gpio_3.when_pressed = activate4
 gpio_3.when_released = deactivate4
 
-gpio_4 = Button(4)
-gpio_4.when_pressed = screen
+# gpio_4 = Button(4)
+# gpio_4.when_pressed = screen
 
 print('stopgpios')
 # Gpio 16 to 19 will be for internal changes
