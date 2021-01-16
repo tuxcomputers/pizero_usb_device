@@ -102,27 +102,27 @@ def activate1():
     print('act1')
 def deactivate1():
     deactivate(1)
-    print('act1')
+    print('deact1')
 
 def activate2():
     activate(2)
-    print('act')
+    print('act2')
 def deactivate2():
     deactivate(2)
-    print('deact')
+    print('deact2')
 
 def activate3():
     activate(3)
-    print('act')
+    print('act3')
 def deactivate3():
     deactivate(3)
-    print('deact')
+    print('deact3')
 
 def activate4():
     activate(4)
-    print('act')
+    print('act4')
 def deactivate4():
-    print('deact')
+    print('deact4')
     deactivate(4)
 
 # Using GPIO 0 to 15
