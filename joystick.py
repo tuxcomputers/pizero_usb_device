@@ -67,8 +67,10 @@ def button(butt, val='flip'):
     sendReport()
 
 def activate(butt):
+    print('butt: '+str(butt))
     button(butt, 1)
 def deactivate(butt):
+    print('butt: '+str(butt))
     button(butt, 0)
 
 def screen():
