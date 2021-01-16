@@ -21,7 +21,7 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = '\\'+hex(0)[1:]+'\\'+hex(0)[1:]+'\\'+('\\'.join(hexList))
+    report = '\\0\\0\\'+('\\'.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+str(report))
@@ -42,8 +42,10 @@ def compileReport():
 
         for y in range(len(bitsReverse)):
             bitsReverseString += str(bitsReverse[y])
-
-        hexList[x] = hex(int(bitsReverseString,2))[1:]
+        if (str(hex(int(bitsReverseString,2))[1:]) == 'x0'):
+            hexList = '0'
+        else:
+            hexList[x] = hex(int(bitsReverseString,2))[1:]
 def modifyBit(button, val='flip'):
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = button - 1
@@ -90,50 +92,22 @@ def screen():
 #     with open('/dev/hidg0', 'rb+') as fd:
 #         fd.write(report.encode())
 
-def activate1():
-    activate(1)
-    print('act1')
-def deactivate1():
-    deactivate(1)
-    print('deact1')
-
-def activate2():
-    activate(2)
-    print('act2')
-def deactivate2():
-    deactivate(2)
-    print('deact2')
-
-def activate3():
-    activate(3)
-    print('act3')
-def deactivate3():
-    deactivate(3)
-    print('deact3')
-
-def activate4():
-    activate(4)
-    print('act4')
-def deactivate4():
-    print('deact4')
-    deactivate(4)
-
 # Using GPIO 0 to 15
 gpio_0 = Button(0)
-gpio_0.when_pressed = activate1
-gpio_0.when_released = deactivate1
+gpio_0.when_pressed = activate
+gpio_0.when_released = deactivate
 
 gpio_1 = Button(1)
-gpio_1.when_pressed = activate2
-gpio_1.when_released = deactivate2
+gpio_1.when_pressed = activate
+gpio_1.when_released = deactivate
 
 gpio_2 = Button(2)
-gpio_2.when_pressed = activate3
-gpio_2.when_released = deactivate3
+gpio_2.when_pressed = activate
+gpio_2.when_released = deactivate
 
 gpio_3 = Button(3)
-gpio_3.when_pressed = activate4
-gpio_3.when_released = deactivate4
+gpio_3.when_pressed = activate
+gpio_3.when_released = deactivate
 
 # gpio_4 = Button(4)
 # gpio_4.when_pressed = screen
