@@ -11,6 +11,7 @@ hexList = [None] * 4
 NULL_CHAR = chr(0)
 report_length_file = open('/sys/kernel/config/usb_gadget/xac_joystick/functions/hid.usb0/report_length', 'r')
 report_length      = int(report_length_file.read())
+print('initialized values')
 
 # image display maybe
 # image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 1280x800 /home/pi/images/eliteD.png'.split())
@@ -25,7 +26,7 @@ def sendReport():
 
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
-
+print('sendreport')
 def compileReport():
     # go through the bytes we want to send. 4 because we have 32 buttons
     for x in range(len(hexList)):
@@ -43,7 +44,7 @@ def compileReport():
             bitsReverseString += str(bitsReverse[y])
 
         hexList[x] = hex(int(bitsReverseString,2))
-
+print('compilereport')
 def modifyBit(button, val='flip'):
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = button - 1
@@ -58,7 +59,7 @@ def modifyBit(button, val='flip'):
             binaryList[pos] = 0
         else:
             binaryList[pos] = 1
-
+print('modifybit')
 def button(butt, val='flip'):
     modifyBit(butt, val)
     compileReport
@@ -105,6 +106,7 @@ def deactivate(butt):
 #     button(26)
 
 # Using GPIO 0 to 15
+print('startgpios')
 gpio_0 = Button(0)
 gpio_0.when_pressed = activate
 gpio_0.when_released = deactivate
@@ -120,6 +122,7 @@ gpio_2.when_released = deactivate
 gpio_3 = Button(3)
 gpio_3.when_pressed = deactivate
 gpio_3.when_released = deactivate
+print('stopgpios')
 
 # Gpio 16 to 19 will be for internal changes
 
