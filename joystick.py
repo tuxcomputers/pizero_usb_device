@@ -110,24 +110,25 @@ def deactivate(butt):
 #     button(26)
 
 # Using GPIO 0 to 15
-print('startgpios')
-gpio_0 = Button(0)
-gpio_0.when_pressed = activate
-gpio_0.when_released = deactivate
+while true:
+    print('startgpios')
+    gpio_0 = Button(0)
+    gpio_0.when_pressed = activate
+    gpio_0.when_released = deactivate
 
-gpio_1 = Button(1)
-gpio_1.when_pressed = deactivate
-gpio_1.when_released = deactivate
+    gpio_1 = Button(1)
+    gpio_1.when_pressed = deactivate
+    gpio_1.when_released = deactivate
 
-gpio_2 = Button(2)
-gpio_2.when_pressed = deactivate
-gpio_2.when_released = deactivate
+    gpio_2 = Button(2)
+    gpio_2.when_pressed = deactivate
+    gpio_2.when_released = deactivate
 
-gpio_3 = Button(3)
-gpio_3.when_pressed = deactivate
-gpio_3.when_released = deactivate
+    gpio_3 = Button(3)
+    gpio_3.when_pressed = deactivate
+    gpio_3.when_released = deactivate
+
 print('stopgpios')
-
 # Gpio 16 to 19 will be for internal changes
 
 clean_up()
