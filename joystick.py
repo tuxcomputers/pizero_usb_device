@@ -59,7 +59,7 @@ def modifyBit(button, val='flip'):
         else:
             binaryList[pos] = 1
 def button(butt, val='flip'):
-    print('button action')
+    print('button action '+butt+' '+val)
     modifyBit(butt, val)
     compileReport()
     sendReport()
