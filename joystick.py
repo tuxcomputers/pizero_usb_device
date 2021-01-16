@@ -20,12 +20,35 @@ def clean_up():
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
 
+def testreports(report):
+    with open('/dev/hidg0', 'rb+') as fd:
+        fd.write(report.encode())
+
+def testing():
+    testreports('\x4\x0\x0\x0\x0\x0')
+    sleep(2)
+    clean_up
+    testreports('\x0\x4\x0\x0\x0\x0')
+    sleep(2)
+    clean_up
+    testreports('\x0\x0\x4\x0\x0\x0')
+    sleep(2)
+    clean_up
+    testreports('\x0\x0\x0\x4\x0\x0')
+    sleep(2)
+    clean_up
+    testreports('\x0\x0\x0\x0\x4\x0')
+    sleep(2)
+    clean_up
+    testreports('\x0\x0\x0\x0\x0\x4')
+    sleep(2)
+    clean_up
+
 def sendReport():
-    report = str('\\x0\\x0\\'+('\\'.join(hexList)))
+    report = str('\\x0\\'+('\\'.join(hexList))+'\\x0')
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+str(report))
-    clean_up()
     #print('bits: '+str(binaryList))
 
 def compileReport():
@@ -108,8 +131,8 @@ gpio_2.when_pressed = activate
 gpio_2.when_released = deactivate
 
 gpio_3 = Button(3)
-gpio_3.when_pressed = activate
-gpio_3.when_released = deactivate
+gpio_3.when_pressed = testing
+#gpio_3.when_released = deactivate
 
 # gpio_4 = Button(4)
 # gpio_4.when_pressed = screen
