@@ -66,8 +66,12 @@ def button(butt, val='flip'):
 
 def activate(butt):
     button(butt, 1)
+    print(butt)
+    print(type(butt))
 def deactivate(butt):
     button(butt, 0)
+    print(butt)
+    print(type(butt))
 
 # def button(p):
 #     # The position of the data byte
@@ -102,20 +106,20 @@ def deactivate(butt):
 
 # Using GPIO 0 to 15
 gpio_0 = Button(0)
-gpio_0.when_pressed = activate(1)
-gpio_0.when_released = deactivate(1)
+gpio_0.when_pressed = activate
+gpio_0.when_released = deactivate
 
 gpio_1 = Button(1)
-gpio_1.when_pressed = deactivate(2)
-gpio_1.when_released = deactivate(2)
+gpio_1.when_pressed = deactivate
+gpio_1.when_released = deactivate
 
 gpio_2 = Button(2)
-gpio_2.when_pressed = deactivate(3)
-gpio_2.when_released = deactivate(3)
+gpio_2.when_pressed = deactivate
+gpio_2.when_released = deactivate
 
 gpio_3 = Button(3)
-gpio_3.when_pressed = deactivate(4)
-gpio_3.when_released = deactivate(4)
+gpio_3.when_pressed = deactivate
+gpio_3.when_released = deactivate
 
 # Gpio 16 to 19 will be for internal changes
 
