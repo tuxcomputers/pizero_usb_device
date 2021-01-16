@@ -72,7 +72,7 @@ def deactivate(butt):
     button(butt, 0)
 
 def screen():
-    image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 1280x800 /home/pi/images/eliteD.png'.split())
+    image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 256x160 images/atreides.png'.split())
 # def button(p):
 #     # The position of the data byte
 #     loc = int(floor(p-1)/8)
@@ -137,6 +137,9 @@ gpio_2.when_released = deactivate3
 gpio_3 = Button(3)
 gpio_3.when_pressed = activate4
 gpio_3.when_released = deactivate4
+
+gpio_4 = Button(4)
+gpio_4.when_pressed = screen
 
 print('stopgpios')
 # Gpio 16 to 19 will be for internal changes
