@@ -34,8 +34,8 @@ def compileReport():
         # initialise some stuff
         hexList[x] = None
         bitsReverseString = ''
-        
-        # get the bits 
+
+        # get the bits
         bitsReverse = binaryList[x*8:(x*8)+8]
         # and then WE REVERSE THEM because they are backwards in the byte
         # without this, button 2 would be triggered by GPIO 7, and 1 by 8, etc.
@@ -81,52 +81,67 @@ def deactivate(butt):
 # def button(p):
 #     # The position of the data byte
 #     loc = int(floor(p-1)/8)
-    
+
 #     # The required power is calculated
 #     power = p-(loc*8)-1
-    
+
 #     # The character value is calculated
 #     x = int(pow(2, power))
-    
+
 #     # First two bytes are for joystick XY, always 00
 #     # The number of padding bytes until the data is next
 #     # The data is added
 #     # The number of padding bytes to the end is added on the end, the 3 on the end of the formula is 2 x XY position bytes and the data byte
 #     report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
-    
+
 #     with open('/dev/hidg0', 'rb+') as fd:
 #         fd.write(report.encode())
-    
-# def js_button_1():
-#     button(1)
 
-# def js_button_10():
-#     button(10)
+def activate1():
+    activate(1)
+    print('act1')
+def activate1():
+    deactivate(1)
+    print('act1')
 
-# def js_button_18():
-#     button(18)
+def activate2():
+    activate(2)
+    print('act')
+def activate2():
+    deactivate(2)
+    print('deact')
 
-# def js_button_26():
-#     button(26)
+def activate3():
+    activate(3)
+    print('act')
+def activate3():
+    deactivate(3)
+    print('deact')
+
+def activate4():
+    activate(4)
+    print('act')
+def activate4():
+    print('deact')
+    deactivate(4)
 
 # Using GPIO 0 to 15
-while True:
-    print('startgpios')
-    gpio_0 = Button(0)
-    gpio_0.when_pressed = activate
-    gpio_0.when_released = deactivate
+print('startgpios')
+gpio_0 = Button(0)
+gpio_0.when_pressed = activate1
+gpio_0.when_released = deactivate1
 
-    gpio_1 = Button(1)
-    gpio_1.when_pressed = deactivate
-    gpio_1.when_released = deactivate
+gpio_1 = Button(1)
+gpio_1.when_pressed = deactivate2
+gpio_1.when_released = deactivate2
 
-    gpio_2 = Button(2)
-    gpio_2.when_pressed = deactivate
-    gpio_2.when_released = deactivate
+gpio_2 = Button(2)
+gpio_2.when_pressed = deactivate3
+gpio_2.when_released = deactivate3
 
-    gpio_3 = Button(3)
-    gpio_3.when_pressed = deactivate
-    gpio_3.when_released = deactivate
+gpio_3 = Button(3)
+gpio_3.when_pressed = deactivate4
+gpio_3.when_released = deactivate4
 
 print('stopgpios')
 # Gpio 16 to 19 will be for internal changes
