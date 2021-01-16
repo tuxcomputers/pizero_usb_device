@@ -21,7 +21,7 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = '\\'+hex(0)[1:]+'\\'+hex(0)[1:]+('\\'.join(hexList))
+    report = '\\'+hex(0)[1:]+'\\'+hex(0)[1:]+'\\'+('\\'.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+str(report))
