@@ -43,7 +43,7 @@ def compileReport():
         for y in range(len(bitsReverse)):
             bitsReverseString += str(bitsReverse[y])
         if (str(hex(int(bitsReverseString,2))[1:]) == 'x0'):
-            hexList = '0'
+            hexList[x] = '0'
         else:
             hexList[x] = hex(int(bitsReverseString,2))[1:]
 def modifyBit(butt, val='flip'):
