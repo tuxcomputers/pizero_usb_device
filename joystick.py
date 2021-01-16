@@ -21,7 +21,7 @@ def clean_up():
         fd.write(report.encode())
 
 def sendReport():
-    report = hex(0)+hex(0)+(''.join(hexList))
+    report = hex(0)+hex(0)+('\\'.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     print('report: '+str(report))
@@ -43,7 +43,7 @@ def compileReport():
         for y in range(len(bitsReverse)):
             bitsReverseString += str(bitsReverse[y])
 
-        hexList[x] = hex(int(bitsReverseString,2))
+        hexList[x] = hex(int(bitsReverseString,2))[1:]
 def modifyBit(button, val='flip'):
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = button - 1
