@@ -44,12 +44,11 @@ def compileReport():
             bitsReverseString += str(bitsReverse[y])
         
         hexVal = hex(int(bitsReverseString,2))#[2:]
-        
-        hexList[x] = hexVal
 
-        #if (hexVal == '0' or hexVal == '00'):
-            #hexList[x] = '\0'
-        #else:
+        if (hexVal == '0' or hexVal == '00'):
+            hexList[x] = '\0'
+        else:
+            hexList[x] = hexVal
             #if (len(hexVal) == 1):
                 # [1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
                 #hexList[x] = r'\x'+hexVal+'0'
