@@ -22,9 +22,9 @@ def clean_up():
 def sendReport():
     # empty bytes are \0 and hex codes are \x followed by the two hex digits
     report = str('\0\0'+(''.join(hexList)))
-    #with open('/dev/hidg0', 'rb+') as fd:
-        #fd.write(report.encode())
-    print('report: '+str(report))
+    with open('/dev/hidg0', 'rb+') as fd:
+        fd.write(report.encode())
+    print('report: \''+str(report)+'\'')
     #print('bits: '+str(binaryList))
 
 def compileReport():
@@ -62,7 +62,6 @@ def modifyBit(butt, val='flip'):
         else:
             binaryList[pos] = 1
 def button(butt, val='flip'):
-    print('button action '+str(butt)+' '+str(val))
     modifyBit(butt, val)
     compileReport()
     sendReport()
@@ -74,24 +73,6 @@ def deactivate(butt):
 
 # def screen():
     # image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 256x160 images/atreides.png'.split())
-# def button(p):
-#     # The position of the data byte
-#     loc = int(floor(p-1)/8)
-
-#     # The required power is calculated
-#     power = p-(loc*8)-1
-
-#     # The character value is calculated
-#     x = int(pow(2, power))
-
-#     # First two bytes are for joystick XY, always 00
-#     # The number of padding bytes until the data is next
-#     # The data is added
-#     # The number of padding bytes to the end is added on the end, the 3 on the end of the formula is 2 x XY position bytes and the data byte
-#     report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
-
-#     with open('/dev/hidg0', 'rb+') as fd:
-#         fd.write(report.encode())
 
 # Using GPIO 0 to 15
 gpio_0 = Button(0)
@@ -109,7 +90,6 @@ gpio_2.when_released = deactivate
 gpio_3 = Button(3)
 gpio_3.when_pressed = activate
 gpio_3.when_released = deactivate
-#gpio_3.when_released = deactivate
 
 # gpio_4 = Button(4)
 # gpio_4.when_pressed = screen
