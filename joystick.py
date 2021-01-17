@@ -48,6 +48,7 @@ def compileReport():
         if (hexVal == '0x0' or hexVal == '0x00'):
             hexList[x] = '\0'
         else:
+            # turns the hex string into an int and a unicode character that the computer interprets as a digit
             hexList[x] = chr(int(hexVal,16))
             #hexList[x] = hexVal
             #if (len(hexVal) == 1):
@@ -99,8 +100,53 @@ gpio_3 = Button(3)
 gpio_3.when_pressed = activate
 gpio_3.when_released = deactivate
 
-# gpio_4 = Button(4)
-# gpio_4.when_pressed = screen
+gpio_4 = Button(4)
+gpio_4.when_pressed = activate
+gpio_4.when_released = deactivate
+
+gpio_5 = Button(5)
+gpio_5.when_pressed = activate
+gpio_5.when_released = deactivate
+
+gpio_6 = Button(6)
+gpio_6.when_pressed = activate
+gpio_6.when_released = deactivate
+
+gpio_7 = Button(7)
+gpio_7.when_pressed = activate
+gpio_7.when_released = deactivate
+
+gpio_8 = Button(8)
+gpio_8.when_pressed = activate
+gpio_8.when_released = deactivate
+
+gpio_9 = Button(9)
+gpio_9.when_pressed = activate
+gpio_9.when_released = deactivate
+
+gpio_10 = Button(10)
+gpio_10.when_pressed = activate
+gpio_10.when_released = deactivate
+
+gpio_11 = Button(11)
+gpio_11.when_pressed = activate
+gpio_11.when_released = deactivate
+
+gpio_12 = Button(12)
+gpio_12.when_pressed = activate
+gpio_12.when_released = deactivate
+
+gpio_13 = Button(13)
+gpio_13.when_pressed = activate
+gpio_13.when_released = deactivate
+
+gpio_14 = Button(14)
+gpio_14.when_pressed = activate
+gpio_14.when_released = deactivate
+
+gpio_15 = Button(15)
+gpio_15.when_pressed = activate
+gpio_15.when_released = deactivate
 
 # Gpio 16 to 19 will be for internal changes
 
