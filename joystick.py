@@ -26,7 +26,7 @@ def testreports(report):
 
 def testing():
     print('1 using \\x4 and \\0')
-    testreports('\x4\0\0\0\0\0')
+    testreports('\x40\0\0\0\0\0')
     sleep(4)
     clean_up()
     sleep(4)
