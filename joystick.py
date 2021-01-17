@@ -25,13 +25,13 @@ def testreports(report):
         fd.write(report.encode())
 
 def testing():
-    print('1')
+    print('1 using x40')
     testreports('\\x40\\x80\\x0\\x0\\x0\\x0')
     sleep(4)
     clean_up()
     sleep(4)
-    print('2')
-    testreports('\\x80\\x40\\x0\\x0\\x0\\x0')
+    print('2 using x40')
+    testreports('\\x80\\x40\\x00\\x00\\x00\\x00')
     sleep(4)
     clean_up()
     sleep(4)
@@ -50,8 +50,8 @@ def testing():
     sleep(4)
     clean_up()
     sleep(4)
-    print('6')
-    testreports('\\x80\\x80\\x0\\x0\\x0\\x4')
+    print('6 using \\0')
+    testreports('\\x80\\x80\0\0\0\\x4')
     sleep(4)
     clean_up()
 
