@@ -14,26 +14,16 @@ report_length      = int(report_length_file.read())
 
 # image display maybe
 # image = subprocess.Popen('feh --hide-pointer -x -q -B black -g 1280x800 /home/pi/images/eliteD.png'.split())
-
 def clean_up():
     report = NULL_CHAR*report_length
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
 
-def testreports(report):
-    with open('/dev/hidg0', 'rb+') as fd:
-        fd.write(report.encode())
-
-def testing():
-    print('button7 hopefully')
-    testreports('\0\0\x40\0\0\0')
-    sleep(4)
-    clean_up()
-
 def sendReport():
-    report = str('\\x0\\'+('\\'.join(hexList))+'\\x0')
-    with open('/dev/hidg0', 'rb+') as fd:
-        fd.write(report.encode())
+    # empty bytes are \0 and hex codes are \x followed by the two hex digits
+    report = str('\0\0'+('\\'.join(hexList)))
+    #with open('/dev/hidg0', 'rb+') as fd:
+        #fd.write(report.encode())
     print('report: '+str(report))
     #print('bits: '+str(binaryList))
 
