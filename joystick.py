@@ -45,7 +45,7 @@ def compileReport():
         
         hexVal = hex(int(bitsReverseString,2))#[2:]
 
-        if (hexVal == '0' or hexVal == '00'):
+        if (hexVal == '0x0' or hexVal == '0x00'):
             hexList[x] = '\0'
         else:
             hexList[x] = hexVal
