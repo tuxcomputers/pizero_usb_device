@@ -49,7 +49,7 @@ def compileReport():
             hexList[x] = '\0'
         else:
             # turns the hex string into an int and a unicode character that the computer interprets as a digit
-            print(hexVal)
+            print(hexVal+' byte: '+str(x))
             hexList[x] = chr(int(hexVal,16))
             #hexList[x] = hexVal
             #if (len(hexVal) == 1):
