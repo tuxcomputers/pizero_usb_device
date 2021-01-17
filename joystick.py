@@ -107,7 +107,8 @@ gpio_2.when_pressed = activate
 gpio_2.when_released = deactivate
 
 gpio_3 = Button(3)
-gpio_3.when_pressed = testing
+gpio_3.when_pressed = activate
+gpio_3.when_released = deactivate
 #gpio_3.when_released = deactivate
 
 # gpio_4 = Button(4)
