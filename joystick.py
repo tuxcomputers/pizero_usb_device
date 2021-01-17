@@ -21,7 +21,7 @@ def clean_up():
 
 def sendReport():
     # empty bytes are \0 and hex codes are \x followed by the two hex digits
-    report = str('\0\0'+(''.join(hexList)))
+    report = str(''.join(hexList))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
     #print('report: \''+str(report)+'\'')
