@@ -21,7 +21,7 @@ def clean_up():
 
 def sendReport():
     # empty bytes are \0 and hex codes are \x followed by the two hex digits
-    report = str('\0\0'+('\\'.join(hexList)))
+    report = str('\0\0'+(''.join(hexList)))
     #with open('/dev/hidg0', 'rb+') as fd:
         #fd.write(report.encode())
     print('report: '+str(report))
@@ -42,11 +42,11 @@ def compileReport():
 
         for y in range(len(bitsReverse)):
             bitsReverseString += str(bitsReverse[y])
-        #if (str(hex(int(bitsReverseString,2))[1:]) == 'x0'):
-            #hexList[x] = '0'
-        #else:
-        # [1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
-        hexList[x] = hex(int(bitsReverseString,2))[1:]
+        if (str(hex(int(bitsReverseString,2))[1:]) == 'x0'):
+            hexList[x] = '\0'
+        else:
+            #[1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
+            hexList[x] = hex(int(bitsReverseString,2))[1:]
 def modifyBit(butt, val='flip'):
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = int(butt) 
