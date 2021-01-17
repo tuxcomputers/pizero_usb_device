@@ -48,7 +48,8 @@ def compileReport():
         if (hexVal == '0x0' or hexVal == '0x00'):
             hexList[x] = '\0'
         else:
-            hexList[x] = hexVal
+            hexList[x] = chr(int(hexVal,16))
+            #hexList[x] = hexVal
             #if (len(hexVal) == 1):
                 # [1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
                 #hexList[x] = r'\x'+hexVal+'0'
