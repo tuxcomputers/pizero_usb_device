@@ -24,7 +24,7 @@ def sendReport():
     report = str('\0\0'+(''.join(hexList)))
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
-    print('report: \''+str(report)+'\'')
+    #print('report: \''+str(report)+'\'')
     #print('bits: '+str(binaryList))
 
 def compileReport():
