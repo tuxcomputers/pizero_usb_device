@@ -42,11 +42,17 @@ def compileReport():
 
         for y in range(len(bitsReverse)):
             bitsReverseString += str(bitsReverse[y])
-        if (str(hex(int(bitsReverseString,2))[1:]) == 'x0'):
+
+        hexVal = hex(int(bitsReverseString,2))[2:]
+
+        if (hexVal == '0' or hexVal == '00'):
             hexList[x] = '\0'
         else:
-            #[1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
-            hexList[x] = '\\'+'x'+hex(int(bitsReverseString,2))[2:]
+            if len(hexVal == 1):
+                # [1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
+                hexList[x] = r'\x'+hexVal+'0'
+            else: 
+                hexList[x] = r'\x'+hexVal
 def modifyBit(butt, val='flip'):
     # button 1 is bit 0 so we -1 to turn the button number into the list position\
     pos = int(butt) 
