@@ -26,7 +26,7 @@ def testreports(report):
 
 def testing():
     print('1 using x40')
-    testreports('\\x40\\x80\\x0\\x0\\x0\\x0')
+    testreports('\\x40\0\0\0\0\0')
     sleep(4)
     clean_up()
     sleep(4)
@@ -51,7 +51,7 @@ def testing():
     clean_up()
     sleep(4)
     print('6 using \\0')
-    testreports('\\x80\\x80\0\0\0\\x4')
+    testreports('\0\0\0\0\0\\x4')
     sleep(4)
     clean_up()
 
