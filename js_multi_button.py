@@ -46,26 +46,27 @@ def compileReport():
         hexVal = hex(int(bitsReverseString,2))#[2:]
 
         if (hexVal == '0x0' or hexVal == '0x00'):
+            # for sanities sake. Rather than return an empty hex, return a 0 byte
             hexList[x] = '\0'
         else:
             # turns the hex string into an int and a unicode character that the computer interprets as a digit
             #print(hexVal+' byte: '+str(x))
             hexList[x] = chr(int(hexVal,16))
-            #hexList[x] = hexVal
             #if (len(hexVal) == 1):
                 # [1:] trims the 0 from the from of the hex so we get x04 or x40 rather than 0x04 or 0x40
                 #hexList[x] = r'\x'+hexVal+'0'
             #else: 
                 #hexList[x] = r'\x'+hexVal
 def modifyBit(butt, val='flip'):
-    # button 1 is bit 0 so we -1 to turn the button number into the list position\
+    # make sure than butt is an int we can use for the list
     pos = int(butt) 
-
     # check if its been changed to something valid
-    if (val != 'flip') and (val==1 or val==2):
+    # val is the value of the bit. 0 or 1. Do not change
+    if (val != 'flip') and (val==0 or val==1):
         # turn our button into the value
         binaryList[pos] = val
     else:
+        # the value 
         # its just been flipped so we change it
         if (binaryList[pos] == 1):
             binaryList[pos] = 0
@@ -79,6 +80,7 @@ def button(butt, val='flip'):
 
 def activate(butt):
     print ('activate function is:', butt)
+    # butt gives the value type, butt.pin.number returns the 0 to 15 of which Button(#) was given
     button(butt.pin.number, 1)
 def deactivate(butt):
     print ('deactivate function is:', butt)
