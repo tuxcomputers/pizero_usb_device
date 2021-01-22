@@ -28,8 +28,8 @@ Note2: You can use one of the other OS packages if you wish and skip the install
    ```
 1. Copy the USB device creation script to /usr/bin and make it executable
    ```
-   sudo cp joystick.sh /usr/bin
-   sudo chmod +x /usr/bin/joystick.sh
+   sudo cp device.sh /usr/bin
+   sudo chmod +x /usr/bin/device.sh
    ```
 1. The RaspberryPi uses dynamic device creation so the creation script needs to be run every time the Pi boots. To configure the Zero to run the USB joystick device creation on boot add the following line above 'exit 0' to the file ```/etc/rc.local```
    ```
@@ -54,7 +54,7 @@ Note2: You can use one of the other OS packages if you wish and skip the install
    ![Joystick device](/images/03-test.png)
 1. On the Zero run the command:
    ```
-   sudo python3 joystick.py
+   sudo python3 js_single_button.py
    ```
 1. On the GPIO pins of the Zero connect the following pins to pin 6 (third from the top on the right) and this is the result you should see:
    1. Pin 3 (second left) - Button 1
