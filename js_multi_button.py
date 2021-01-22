@@ -72,13 +72,16 @@ def modifyBit(butt, val='flip'):
         else:
             binaryList[pos] = 1
 def button(butt, val='flip'):
+    print ('button function is:', butt, val)
     modifyBit(butt, val)
     compileReport()
     sendReport()
 
 def activate(butt):
+    print ('activate function is:', butt)
     button(butt.pin.number, 1)
 def deactivate(butt):
+    print ('deactivate function is:', butt)
     button(butt.pin.number, 0)
 
 # def screen():
