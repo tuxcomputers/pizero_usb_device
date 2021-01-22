@@ -26,7 +26,8 @@ def button(p):
     # The number of padding bytes until the data is next
     # The data is added
     # The number of padding bytes to the end is added on the end, the 3 on the end of the formula is 2 x XY position bytes and the data byte
-    report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
+    #report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
+    report = NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-1)
     
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
