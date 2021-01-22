@@ -35,6 +35,8 @@ def js_button_1():
     button(1)
 
 def js_button(gpioPin):
+    # gpioPin.pin.number is the integer of the button.
+    # Rather than a fuction for each specific button, use one for all
     button(gpioPin.pin.number)
 
 def js_button_10():
