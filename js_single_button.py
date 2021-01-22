@@ -34,6 +34,9 @@ def button(p):
 def js_button_1():
     button(1)
 
+def js_button(gpioPin):
+    button(gpioPin.pin.number)
+
 def js_button_10():
     button(10)
 
@@ -44,19 +47,19 @@ def js_button_26():
     button(26)
 
 gpio_2 = Button(2)
-gpio_2.when_pressed = js_button_1
+gpio_2.when_pressed = js_button
 gpio_2.when_released = clean_up
 
 gpio_3 = Button(3)
-gpio_3.when_pressed = js_button_10
+gpio_3.when_pressed = js_button
 gpio_3.when_released = clean_up
 
 gpio_4 = Button(4)
-gpio_4.when_pressed = js_button_18
+gpio_4.when_pressed = js_button
 gpio_4.when_released = clean_up
 
 gpio_21 = Button(21)
-gpio_21.when_pressed = js_button_26
+gpio_21.when_pressed = js_button
 gpio_21.when_released = clean_up
 
 
