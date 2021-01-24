@@ -5,6 +5,10 @@ cd /sys/kernel/config/usb_gadget/
 mkdir -p xac_joystick
 cd xac_joystick
 
+xy_bytes=2
+button_bytes=4
+total_bytes=$(( $xy_bytes + $button_bytes ))
+
 sudo su
 
 # Define USB specification
@@ -21,6 +25,8 @@ mkdir -p strings/0x409
 echo "21011970" > strings/0x409/serialnumber
 echo "Hazza Industries" > strings/0x409/manufacturer
 echo "RaspberryPi Joystick" > strings/0x409/product
+echo $xy_bytes > strings/0x409/joystick_xy_bytes
+echo $button_bytes > strings/0x409/joystick_button_bytes
 
 # Create configuration file
 mkdir -p configs/c.1/strings/0x409
@@ -32,10 +38,10 @@ echo "Joystick configuration" > configs/c.1/strings/0x409/configuration
 mkdir functions/hid.usb0
 echo 0 > functions/hid.usb0/protocol
 echo 0 > functions/hid.usb0/subclass
-echo 4 > functions/hid.usb0/report_length
+echo $total_bytes > functions/hid.usb0/report_length
 
 # HID descriptor for a joystick with 32 buttons
-echo -ne \\x05\\x01\\x09\\x04\\xA1\\x01\\x05\\x09\\x19\\x01\\x29\\x20\\x15\\x00\\x25\\x01\\x75\\x01\\x95\\x20\\x81\\x02\\xC0 > functions/hid.usb0/report_desc
+echo -ne \\x05\\x01\\x09\\x04\\xA1\\x01\\x15\\x81\\x25\\x7F\\x09\\x01\\xA1\\x00\\x09\\x30\\x09\\x31\\x75\\x08\\x95\\x02\\x81\\x02\\xC0\\xA1\\x00\\x05\\x09\\x19\\x01\\x29\\x20\\x15\\x00\\x25\\x01\\x75\\x01\\x95\\x20\\x81\\x02\\xC0\\xC0 > functions/hid.usb0/report_desc
 ####                                                                                                                                                                        ^^ Max buttons                          ^^ Reported buttons
 
 # Link the configuration file
