@@ -41,9 +41,13 @@ echo 0 > functions/hid.usb0/protocol
 echo 0 > functions/hid.usb0/subclass
 echo $total_bytes > functions/hid.usb0/report_length
 
-# HID descriptor for a joystick with 32 buttons
+# HID descriptor for a joystick with XY and 32 buttons
 echo -ne \\x05\\x01\\x09\\x04\\xA1\\x01\\x15\\x81\\x25\\x7F\\x09\\x01\\xA1\\x00\\x09\\x30\\x09\\x31\\x75\\x08\\x95\\x02\\x81\\x02\\xC0\\xA1\\x00\\x05\\x09\\x19\\x01\\x29\\x20\\x15\\x00\\x25\\x01\\x75\\x01\\x95\\x20\\x81\\x02\\xC0\\xC0 > functions/hid.usb0/report_desc
 ####                                                                                                                                                                        ^^ Max buttons                          ^^ Reported buttons
+
+# HID descriptor for a joystick with no XY and only 32 buttons
+#echo -ne \\x05\\x01\\x09\\x04\\xA1\\x01\\x05\\x09\\x19\\x01\\x29\\x20\\x15\\x00\\x25\\x01\\x75\\x01\\x95\\x20\\x81\\x02\\xC0 > functions/hid.usb0/report_desc
+####                                                                ^^ Max buttons                          ^^ Reported buttons
 
 # Link the configuration file
 ln -s functions/hid.usb0 configs/c.1
