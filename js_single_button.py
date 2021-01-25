@@ -7,7 +7,7 @@ NULL_CHAR = chr(0)
 xy_bytes_file      = open('/opt/joystick/joystick_xy_bytes', 'r')
 xy_bytes           = int(xy_bytes_file.read())
 button_bytes_file  = open('/opt/joystick/joystick_button_bytes', 'r')
-button_bytes       = int(xy_bytes_file.read())
+button_bytes       = int(button_bytes_file.read())
 report_length_file = open('/opt/joystick/report_length', 'r')
 report_length      = int(report_length_file.read())
 
