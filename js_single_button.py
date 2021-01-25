@@ -4,7 +4,11 @@ from time import sleep
 from math import pow, floor
 
 NULL_CHAR = chr(0)
-report_length_file = open('/sys/kernel/config/usb_gadget/xac_joystick/functions/hid.usb0/report_length', 'r')
+xy_bytes_file      = open('/opt/joystick/joystick_xy_bytes', 'r')
+xy_bytes           = int(xy_bytes_file.read())
+button_bytes_file  = open('/opt/joystick/joystick_button_bytes', 'r')
+button_bytes       = int(xy_bytes_file.read())
+report_length_file = open('/opt/joystick/report_length', 'r')
 report_length      = int(report_length_file.read())
 
 def clean_up():
@@ -27,7 +31,7 @@ def button(p):
     # The data is added
     # The number of padding bytes to the end is added on the end, the 3 on the end of the formula is 2 x XY position bytes and the data byte
     #report = NULL_CHAR*2+NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-3)
-    report = NULL_CHAR*loc+chr(x)+NULL_CHAR*(report_length-loc-1)
+    report = NULL_CHAR*xy_bytes+NULL_CHAR*loc+chr(x)+NULL_CHAR*(button_bytes-loc-1)
     
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())

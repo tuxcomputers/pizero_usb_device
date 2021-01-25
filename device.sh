@@ -9,7 +9,10 @@ xy_bytes=2
 button_bytes=4
 total_bytes=$(( $xy_bytes + $button_bytes ))
 
-sudo su
+mkdir -p /opt/joystick/
+echo $xy_bytes > /opt/joystick/joystick_xy_bytes
+echo $button_bytes > /opt/joystick/joystick_button_bytes
+echo $total_bytes > /opt/joystick/report_length
 
 # Define USB specification
 echo 0x1d6b > idVendor  # Linux Foundation
@@ -25,8 +28,6 @@ mkdir -p strings/0x409
 echo "21011970" > strings/0x409/serialnumber
 echo "Hazza Industries" > strings/0x409/manufacturer
 echo "RaspberryPi Joystick" > strings/0x409/product
-echo $xy_bytes > strings/0x409/joystick_xy_bytes
-echo $button_bytes > strings/0x409/joystick_button_bytes
 
 # Create configuration file
 mkdir -p configs/c.1/strings/0x409
