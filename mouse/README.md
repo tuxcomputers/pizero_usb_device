@@ -4,9 +4,9 @@ I developed this to use on my work laptop while I play games on my PS5. I cannot
 
 While I am playing I have open on the laptop things such as maps and inventory managers.
 
-When I needed to see otr use those the screensaver had locked the laptop and I had to go through the annoying process to unlock it.
+When I needed to see or use those the screensaver had locked the laptop and I had to go through the annoying process to unlock it.
 
-With this code the PiZero emulates a mouse and every 4 minutes sends a command to the laptop to move 1 pixel left and then one pixel right.
+With this code the PiZero emulates a mouse and every 4 minutes sends a command to the laptop to move one pixel left and then one pixel right.
 
 This is enough to stop the screensaver but not enough to notice if you are using the laptop at the time.
 
@@ -18,9 +18,9 @@ There are only 3 files involved:
 ## activate_mouse.sh
 This is the file that contains all of the code required on each boot up.
 
-The USB system is dynamic and there is no persistant method to create the required entries
+The USB system on the PiZero is dynamic and there is no persistant method to create the required entries
 
-To make the PiZero start as a USB mouse on boot automatically
+To make the PiZero start as a USB mouse on boot automatically you need to take the following steps
 
 First add a symbolic link in the /usr/bin directory
 ```
@@ -56,11 +56,13 @@ That function calls write_report with each variable in time. The write_report fu
 
 ## mouse.sh
 
-This is a simple bash wrapper script that calls python to run the mouse.py file
+With the above two done the PiZero will automatically present itself as a mouse but it won't do anything. To make it useful and serve the purpose this script can be set to run every 4 minutes.
 
-If you do not want the date time of when the script is called change the value of do_log to anything but a 1
+This file is a simple bash wrapper script that calls python to run the mouse.py file
 
-All that is required now is to have the piZero run this bash script, first open your crontab:
+If you do not want the date/time of when the script is called change the value of do_log to anything but a 1
+
+All that is required now is to have the PiZero run this bash script, first open your crontab:
 ```
 crontab -e
 ```
@@ -74,9 +76,10 @@ Close and save.
 
 ## Checking it works
 
-Plug in your piZero to your laptop, after a short time you should hear the usual sound of a new device being connected.
+Plug in your PiZero to your laptop, after a short time you should hear the usual sound of a new device being connected.
 
 Check you have the "Ulitmate mouse" in your devices list
+
 ![Ultimate mouse](01-mouse.png)
 
 If you wish to change the serial number, the manufacturer or the name of the mouse it can be done in the 'activate_mouse.sh' script lines 12 to 14
