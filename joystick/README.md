@@ -1,4 +1,4 @@
-# RaspberryPi Zero W as a Virtual joystick
+# RaspberryPi Zero as a Virtual joystick
 This project was developed to turn a RaspberryPi Zero into a virtual joystick
 
 1. Download the GPIO Python package:

@@ -1,4 +1,4 @@
-# RaspberryPi Zero W as a Virtual mouse
+# RaspberryPi Zero as a Virtual mouse
 
 I developed this to use on my work laptop while I play games on my PS5. I cannot alter the time the screensaver takes to kick in.
 

@@ -30,3 +30,4 @@ Enable libcomposite and other necessary modules and drivers
 # Follow the instructions inside one of the folders for the type of device you want to emulate
 1. [Joystick](joystick)
 1. [Mouse](mouse)
+1. [Network](network)
