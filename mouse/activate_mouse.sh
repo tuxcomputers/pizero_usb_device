@@ -4,6 +4,9 @@
 cd /sys/kernel/config/usb_gadget/
 mkdir -p isticktoit
 cd isticktoit
+
+sudo su
+
 echo 0x1d6b > idVendor # Linux Foundation
 echo 0x0104 > idProduct # Multifunction Composite Gadget
 echo 0x0100 > bcdDevice # v1.0.0
@@ -27,3 +30,4 @@ ln -s functions/hid.usb0 configs/c.1/
 
 ls /sys/class/udc > UDC
 
+sleep 10
