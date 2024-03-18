@@ -42,6 +42,5 @@ ln -s functions/hid.mouse configs/c.1/
 ls /sys/class/udc > UDC
 
 chmod 777 /dev/hidg0
-chmod 777 /dev/hidg1
 
 sleep 10
