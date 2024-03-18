@@ -5,8 +5,6 @@ cd /sys/kernel/config/usb_gadget/
 mkdir -p xac_joystick
 cd xac_joystick
 
-sudo su
-
 # Define USB specification
 echo 0x1d6b > idVendor  # Linux Foundation
 echo 0x0104 > idProduct # Multifunction Composite Joystick Gadget
@@ -41,7 +39,7 @@ echo -ne \\x05\\x01\\x09\\x04\\xA1\\x01\\x15\\x81\\x25\\x7F\\x09\\x01\\xA1\\x00\
 # Link the configuration file
 ln -s functions/hid.usb0 configs/c.1
 
-# Activate device 
+# Activate device
 sudo ls /sys/class/udc > UDC
 
 sleep 10
