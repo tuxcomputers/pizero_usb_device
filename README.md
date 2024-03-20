@@ -14,6 +14,8 @@ Notes:
 1. You can use one of the other OS packages if you wish and skip the install of the GPIO Python package install
 1. Ensure you plug in the USB cable to the left hand side port, the right side is power only
 
+![Left port](Raspberry-Pi-Zero-Overhead.jpg)
+
 # Software installation
 
 Image the SD card with the image of the OS. There are many instructions on how to do this but my go to program is [balenaEtcher](https://www.balena.io/etcher/)
