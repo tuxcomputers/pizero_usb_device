@@ -1,0 +1,11 @@
+[Unit]
+Description=PiZero mouse emulation
+
+[Service]
+ExecStart=/usr/bin/activate_mouse.sh
+Type=exec
+
+
+[Install]
+WantedBy=multi-user.target
+
