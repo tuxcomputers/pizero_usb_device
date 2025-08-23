@@ -28,19 +28,13 @@ cd /usr/bin
 sudo ln -s ~/pizero_usb_device/mouse/activate_mouse.sh
 ```
 
-Next add that to the rc.local to ensure it runs on every startup
+Next setup the systemd service for the mouse
 ```
-cd /etc
-sudo nano rc.local
+sudo cp usbmouse.service /etc/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable usbmouse.service
+sudo systemctl start usbmouse.service
 ```
-
-Just above the 'exit' line add another line:
-```
-/usr/bin/activate_mouse.sh
-```
-1. Ctrl+X to exit the nano editor
-1. respond Y when it asks if you want to save the file
-1. hit enter to overwrite rc.local
 
 Lastly ensure that the file is executable:
 ```
