@@ -56,17 +56,18 @@ This file is a simple bash wrapper script that calls python to run the mouse.py 
 
 If you do not want the date/time of when the script is called change the value of do_log to anything but a 1
 
-All that is required now is to have the PiZero run this bash script, first open your crontab:
+First copy the two jigglemouse files to the systemd location
 ```
-crontab -e
+sudo cp jiggle.service /etc/systemd/system
+sudo cp jiggle.timer /etc/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable --now jiggle.timer
 ```
-_If it asks which editor you want to use select nano_
+Check that the timer is set and it will run
+```
+systemctl list-timers
+```
 
-Add a line to the file that the PiZero runs the script every 4 minutes:
-```
-*/4 * * * * ~/pizero_usb_device/mouse/mouse.sh
-```
-Close and save.
 
 ## Checking it works
 
