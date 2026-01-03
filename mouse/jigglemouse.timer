@@ -1,0 +1,11 @@
+[Unit]
+Description=Jiggle the mouse 1 pixel one way then the other every 4 minutes
+
+[Timer]
+OnCalendar=*:1/4
+Persistent=false
+
+[Install]
+WantedBy=timers.target
+
+

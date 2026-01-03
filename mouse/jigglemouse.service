@@ -1,0 +1,11 @@
+[Unit]
+Description=Jiggle the mouse
+
+[Service]
+Type=oneshot
+ExecStart=/home/harry/git/pizero_usb_device/mouse/mouse.sh
+WorkingDirectory=/home/harry/git/pizero_usb_device/mouse
+
+[Install]
+
+

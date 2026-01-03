@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import time
+#import time
 
 def write_report(report):
         with open('/dev/hidg0', 'wb+') as fd:
