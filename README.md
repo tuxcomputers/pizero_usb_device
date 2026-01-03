@@ -24,7 +24,7 @@ Image the SD card with the image of the OS. There are many instructions on how t
 
 Enable libcomposite and other necessary modules and drivers
    ```
-   sudo echo "dtoverlay=dwc2" | sudo tee -a /boot/config.txt
+   sudo echo "dtoverlay=dwc2" | sudo tee -a /boot/firmware/config.txt
    sudo echo "dwc2" | sudo tee -a /etc/modules
    sudo echo "libcomposite" | sudo tee -a /etc/modules
    ```
