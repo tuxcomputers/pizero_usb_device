@@ -1,0 +1,12 @@
+[Unit]
+Description=usbip host daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/usbipd -D
+ExecStartPost=/bin/sh -c "/usr/sbin/usbip bind --$(/usr/sbin/usbip list -p -l | grep '#usbid=XXXX:YYYY#' | cut '-d#' -f1)"
+ExecStop=/bin/sh -c "/usr/sbin/usbip unbind --$(/usr/sbin/usbip list -p -l | grep '#usbid=XXXX:YYYY#' | cut '-d#' -f1); killall usbipd"
+
+[Install]
+WantedBy=multi-user.target

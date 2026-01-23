@@ -1,0 +1,13 @@
+[Unit]
+Description=usbip client
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c "/usr/lib/linux-tools/$(uname -r)/usbip attach -r 192.168.0.3 -b $(/usr/lib/linux-tools/$(uname -r)/usbip list -r 192.168.0.3 | grep '04b8:1102' | cut -d: -f1)"
+ExecStop=/bin/sh -c "/usr/lib/linux-tools/$(uname -r)/usbip detach --port=$(/usr/lib/linux-tools/$(uname -r)/usbip port | grep '<Port in Use>' | sed -E 's/^Port ([0-9][0-9]).*/\1/')"
+
+[Install]
+WantedBy=multi-user.target
+
