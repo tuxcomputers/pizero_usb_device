@@ -30,6 +30,7 @@ sudo ln -s ~/pizero_usb_device/mouse/activate_mouse.sh
 
 Next setup the systemd service for the mouse
 ```
+cd ~/pizero_usb_device
 sudo cp usbmouse.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable usbmouse.service
@@ -58,10 +59,11 @@ If you do not want the date/time of when the script is called change the value o
 
 First copy the two jigglemouse files to the systemd location
 ```
-sudo cp jiggle.service /etc/systemd/system
-sudo cp jiggle.timer /etc/systemd/system
+cd ~/pizero_usb_device
+sudo cp jigglemouse.service /etc/systemd/system
+sudo cp jigglemouse.timer /etc/systemd/system
 sudo systemctl daemon-reload
-sudo systemctl enable --now jiggle.timer
+sudo systemctl enable --now jigglemouse.timer
 ```
 Check that the timer is set and it will run
 ```
