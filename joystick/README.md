@@ -1,3 +1,7 @@
+# Don't forget to configure the Zero so it can act as a USB device
+
+The instructions are in the main README.md
+
 # RaspberryPi Zero as a Virtual joystick
 This project was developed to turn a RaspberryPi Zero into a virtual joystick
 

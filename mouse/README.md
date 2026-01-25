@@ -1,3 +1,7 @@
+# Don't forget to configure the Zero so it can act as a USB device
+
+The instructions are in the main README.md
+
 # RaspberryPi Zero as a Virtual mouse
 
 I developed this to use on my work laptop while I play games on my PS5. I cannot alter the time the screensaver takes to kick in.
