@@ -10,9 +10,8 @@ set -x
 set -u
 
 # mouse
-cd /sys/kernel/config/usb_gadget/
-mkdir -p isticktoit
-cd isticktoit
+mkdir -p /sys/kernel/config/usb_gadget/isticktoit
+cd /sys/kernel/config/usb_gadget/isticktoit
 echo 0x1d6b > idVendor # Linux Foundation
 echo 0x0104 > idProduct # Multifunction Composite Gadget
 echo 0x0100 > bcdDevice # v1.0.0

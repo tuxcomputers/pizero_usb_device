@@ -1,3 +1,7 @@
+# Don't forget to configure the Zero so it can act as a USB device
+
+The instructions are in the main README.md
+
 # To configure the Pi Zero so you can access as if it has a network connection
 
 If you have a Raspberry Pi Zero W you already have WiFi built in it can access your WiFi network and you can access it across the WiFi.
